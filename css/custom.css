@@ -26,6 +26,13 @@
   color: black;
 }
 
+.redline > h3 {
+  background-color: #C40008;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-align: center;
+}
+
 .section-signup {
   background-color: #212125;
 }
