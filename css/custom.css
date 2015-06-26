@@ -1,0 +1,161 @@
+/* overrides */
+
+.features-circle {
+  background-color: #C40008;
+  border: 6px solid #22313F;
+}
+
+.features-item:hover .features-circle {
+  background-color: #960409;
+  border-color: #34495E;
+}
+
+.logo span:first-child {
+  color: rgba(196, 0 , 8, .7);
+}
+
+.logo {
+  color: rgb(253, 232, 230);
+  white-space: nowrap;
+}
+
+.site-header {
+  border-top: 5px solid #C40008;
+  background-color: #F7F7F7;
+  text-shadow: none;
+  color: black;
+}
+
+.section-signup {
+  background-color: #212125;
+}
+
+.site-header .logo {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+.signup-form .btn-side {
+  text-decoration: none;
+}
+
+.signup-form .btn-side:hover {
+  border-color: rgb(255, 255, 255);
+  color: rgb(196, 0, 8);
+  background-color: rgb(255, 255, 255);
+}
+
+/* end color overrides */
+
+.row { max-width: 850px; }
+
+header { position: relative; }
+header .row { z-index: 2; position: relative; }
+.section-signup, .signup-subtitle { color: white; }
+.section-signup a { color: white; text-decoration: underline; }
+
+.subheader { text-align: center; color: white; text-transform: uppercase; }
+.open-knowledge-foundation, .dat { width: 150px; float: right; }
+.dat { margin-right: 35px; position: relative; top: 20px; }
+
+.logo { font-family: 'Droid Sans Mono';}
+
+.site-header {
+  background-position: 52% -150px;
+  background-image: url("../img/sp.jpg");
+}
+
+#subheadline, #subheadline a {
+  color: #2C3E50;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+#subheadline a {
+  text-decoration: underline;
+}
+
+.header-intro-wrap {
+  padding-bottom: 110px;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.header-intro-wrap p {
+  font-size: 28px;
+  background-color: #f7f7f7;
+}
+
+.btn-docs {
+  background: #a61300;
+  border-color: #a61300;
+}
+
+.footer-info a {
+  text-decoration: underline;
+  color: white;
+}
+
+
+.footer-info {
+  color: white;
+}
+
+.site-footer {
+  background-color: #000000;
+}
+
+#whatweuse .two, #whatweuse h2 {
+  text-align: center;
+}
+
+@media screen and (max-width: 468px) {
+  .logo {
+    font-size: 40px;
+  }
+  .btn-docs {
+    border-color: #a61300;
+  }
+  .site-header {
+  }
+  .header-intro-wrap p {
+    margin-top: 24px;
+  }
+  .header-signup {
+  }
+  .header-intro-wrap .hs-disclaimer {
+    margin-top:50px;
+  }
+  .header-intro-wrap {
+    padding-bottom: 50px;
+  }
+  #subheadline {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 468px){
+  .logo {
+    font-size: 55px;
+  }
+  #subheadline {
+    font-size: 22px;
+  }
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 53.6%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.open-data-node {
+	float: right;
+}
