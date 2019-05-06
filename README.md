@@ -5,4 +5,4 @@
 ## Proximos Eventos
 * NodeSchool - Javascripting - 14 de Julho - Pagar.me - [eventick](http://even.tc/1a-nodeschool-javascripting)
 
-Saiba [mais no site](http://nodeschool.io/sao-paulo) e [entre na conversa](https://github.com/nodeschool/sao-paulo/issues)!
+Saiba [mais no site](http://nodeschool.io/saopaulo) e [entre na conversa](https://github.com/nodeschool/saopaulo/issues)!
