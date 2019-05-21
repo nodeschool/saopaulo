@@ -1,5 +1,5 @@
 {
-  "name": "nodeschool-oakland",
+  "name": "nodeschool-saopaulo",
   "version": "1.0.0",
   "description": "",
   "main": "",
@@ -25,15 +25,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nodeschool/oakland.git"
+    "url": "git+https://github.com/nodeschool/saopaulo.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nodeschool/oakland/issues"
+    "url": "https://github.com/nodeschool/saopaulo/issues"
   },
-  "homepage": "https://github.com/nodeschool/oakland#readme",
+  "homepage": "https://github.com/nodeschool/saopaulo#readme",
   "dependencies": {
     "async": "^2.0.1",
     "chalk": "^1.1.3",
@@ -47,7 +47,7 @@
     "slug": "^0.9.3"
   },
   "devDependencies": {
-    "chokidar-cli": "^1.2.1",
+    "chokidar-cli": "^1.2.2",
     "mkdirp": "^0.5.1",
     "mustache": "^2.3.0",
     "ncp": "^2.0.0",
