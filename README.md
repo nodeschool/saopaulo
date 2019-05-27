@@ -18,6 +18,7 @@ We utilize [GitHub Issues](https://github.com/nodeschool/saopaulo/issues) like a
 ## Team
 
  - Erick Wendel ([Twitter](https://twitter.com/erickwendel/), [Email](mailto:contato@erickwendel.com.br))
+ - Lucas Santos ([Twitter](https://twitter.com/_staticvoid/), [Email](mailto:hello@lsantos.dev))
 
 -----
 
