@@ -11,7 +11,7 @@ You can see the website here: http://nodeschool.io/saopaulo/
 
 ## Talk to us
 
-We utilize [GitHub Issues](https://github.com/nodeschool/saopaulo/issues) like a message board and keep almost all of our communication in the open. Feel free to create new issues to make suggestions on how NodeSchool Oakland can improve and grow.
+We utilize [GitHub Issues](https://github.com/nodeschool/saopaulo/issues) like a message board and keep almost all of our communication in the open. Feel free to create new issues to make suggestions on how NodeSchool Sao Paulo can improve and grow.
 
 -----
 
