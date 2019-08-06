@@ -1,12 +1,13 @@
 {
-    "generatedAt": 1558983054730,
-    "nextEvent": {
-        "dayOfTheWeek": "Saturday",
-        "date": "July 06th",
-        "time": "1-5PM",
-        "address": "Impacta Certificação e Treinamento - Avenida Paulista, 1009 - 17º andar. Auditório.",
-        "addressUrlSafe": "Impacta Certificação e Treinamento - Avenida Paulista, 1009 - 17º andar. Auditório.",
-        "mentorsUrl": "https://github.com/nodeschool/saopaulo/issues/10",
-        "ticketsUrl": "https://www.meetup.com/pt-BR/nodeschoolsp/events/261811632"
-    }
+  "generatedAt": 1565127006498,
+  "nextEvent": {
+    "dayOfTheWeek": "Saturday",
+    "date": "September 7th",
+    "time": "1-5PM",
+    "address": "Impacta Certificação e Treinamento Avenida Paulista, 1009 - 17º Andar. Auditório",
+    "addressUrlSafe": "Avenida%20Paulista%2C%201009%20-%2017%C2%BA%20Andar.%20Audit%C3%B3rio",
+    "mentorsUrl": "https://github.com/nodeschool/saopaulo/issues/22",
+    "workshopsUrl": "https://github.com/nodeschool/saopaulo/issues/23",
+    "ticketsUrl": "https://www.meetup.com/nodeschoolsp/events/263786026/"
+  }
 }
