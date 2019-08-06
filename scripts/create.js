@@ -28,10 +28,10 @@ const NODESCHOOL_OAK_DEFAULT_EVENT_COORDS = {
 // test calendar form url https://docs.google.com/forms/d/e/1FAIpQLSe2SK5Vzy82yB9SjLI5B3zfrR1QEaxyjyRGvVxWp_K66p31ZA/viewform
 // live calendar form url https://docs.google.com/forms/d/e/1FAIpQLSfp2GU7mntDJtLGwSu84gd6EztBMwQuqXImtrCgjzjbJNKf2Q/viewform
 const NODESCHOOL_CALENDAR_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfp2GU7mntDJtLGwSu84gd6EztBMwQuqXImtrCgjzjbJNKf2Q/viewform';
-const NODESCHOOL_CHAPTER_NAME = 'NodeSchool Oakland';
-const NODESCHOOL_CHAPTER_LOCATION = 'Oakland, California';
-const NODESCHOOL_CHAPTER_URL = 'https://nodeschool.io/oakland';
-const TITO_ACCOUNT = 'nodeschool-oakland';
+const NODESCHOOL_CHAPTER_NAME = 'NodeSchool São Paulo';
+const NODESCHOOL_CHAPTER_LOCATION = 'São Paulo, Brazil';
+const NODESCHOOL_CHAPTER_URL = 'https://nodeschool.io/saopaulo';
+const TITO_ACCOUNT = 'nodeschool-saopaulo';
 const TITO_URL = `https://api.tito.io/v2/${TITO_ACCOUNT}`;
 const TITO_HEADERS = {
   Authorization: `Token token=${NODESCHOOL_OAK_TITO_API_KEY}`,
@@ -44,18 +44,20 @@ const GITHUB_HEADERS = {
   'User-Agent': NODESCHOOL_OAK_GITHUB_API_USER
 };
 const GITHUB_ORG = 'nodeschool';
-const GITHUB_REPO = 'oakland';
+const GITHUB_REPO = 'saopaulo';
 const GOOGLE_MAPS_API_URL = 'https://maps.googleapis.com/maps/api';
 const SUCCESS_SYMBOL = chalk.green('✔');
 const FAILURE_SYMBOL = chalk.red('✘');
 
 const mentorIssueTemplate = fs.readFileSync(`${__dirname}/templates/mentor-registration-issue.mustache`, 'utf8');
-const titoDescriptionTemplate = fs.readFileSync(`${__dirname}/templates/tito-description.mustache`, 'utf8');
+const workshopIssueTemplate = fs.readFileSync(`${__dirname}/templates/focused-session-issue.mustache`, 'utf8');
+// const titoDescriptionTemplate = fs.readFileSync(`${__dirname}/templates/tito-description.mustache`, 'utf8');
 
 const eventNameQuestion = {
   type: 'input',
   name: 'eventName',
   message: 'What is the name of the event?',
+  default: 'NodeSchool São Paulo',
   validate: function (input) {
     if (input.length <= 0) {
       return 'You must input a name for the event!';
@@ -90,6 +92,19 @@ const eventLocationQuestion = {
   }
 };
 
+const eventMeetupSiteQuestion = {
+  type: 'input',
+  name: 'eventUrl',
+  message: 'What is the event meetup URL?',
+  default: '',
+  validate: function (input) {
+    if (!input) {
+      return 'You must input a URL for the event!';
+    }
+    return true;
+  }
+};
+
 const eventDateQuestion = {
   type: 'input',
   name: 'eventDate',
@@ -101,6 +116,22 @@ const eventDateQuestion = {
     const eventDateMoment = moment(input);
     if (!eventDateMoment.isValid()) {
       return 'You must input a valid date for the event!';
+    }
+    return true;
+  }
+};
+
+const eventCfpEndDateQuestion = {
+  type: 'input',
+  name: 'cfpEndDate',
+  message: 'When will the call for papers registration for workshops end? (YYYY-MM-DD)',
+  validate: function (input) {
+    if (!input) {
+      return 'You must input a date for the call for papers to end!';
+    }
+    const eventDateMoment = moment(input);
+    if (!eventDateMoment.isValid()) {
+      return 'You must input a valid date for the call for papers to end!';
     }
     return true;
   }
@@ -124,21 +155,24 @@ function inquire (callback) {
     eventNameQuestion,
     eventLocationNameQuestion,
     eventLocationQuestion,
+    eventMeetupSiteQuestion,
+    eventCfpEndDateQuestion,
     eventDateQuestion,
     eventTimeQuestion
   ])
-  .then(function (answers) {
-    callback(null, answers);
-  });
+    .then(function (answers) {
+      callback(null, answers);
+    });
 }
 
 function createMentorIssue (data, callback) {
   const progressIndicator = ora('Creating Mentor Registration GitHub Issue').start();
-  const { eventName, eventLocationName, eventDate, eventTime } = data;
+  const { eventUrl, eventLocationName, eventDate, eventTime } = data;
   const mentorIssueBody = Mustache.render(mentorIssueTemplate, {
     locationName: eventLocationName,
     date: moment(eventDate).format('MMMM Do'),
-    time: eventTime
+    time: eventTime,
+    eventUrl: eventUrl
   });
 
   request.post({
@@ -146,7 +180,7 @@ function createMentorIssue (data, callback) {
     headers: GITHUB_HEADERS,
     json: true,
     body: {
-      title: `Mentor Registration: ${eventName} at ${eventLocationName}`,
+      title: `Mentor Registration for ${moment(eventDate).format('MMMM Do')}`,
       body: mentorIssueBody
     }
   }, function (error, response, body) {
@@ -160,6 +194,40 @@ function createMentorIssue (data, callback) {
     const { html_url: mentorRegistrationUrl } = body;
     const updatedData = _.assign(data, {
       mentorRegistrationUrl
+    });
+    callback(null, updatedData);
+  });
+}
+function createWorkshopIssue (data, callback) {
+  const progressIndicator = ora('Creating Workshop Registration GitHub Issue').start();
+  const { eventUrl, eventLocationName, eventDate, eventTime, cfpEndDate } = data;
+  const workshopIssueBody = Mustache.render(workshopIssueTemplate, {
+    locationName: eventLocationName,
+    date: moment(eventDate).format('MMMM Do'),
+    time: eventTime,
+    eventUrl: eventUrl,
+    cfpEndDate: moment(cfpEndDate).format('MMMM Do')
+  });
+
+  request.post({
+    url: `${GITHUB_URL}/repos/${GITHUB_ORG}/${GITHUB_REPO}/issues`,
+    headers: GITHUB_HEADERS,
+    json: true,
+    body: {
+      title: `Call4papers for ${moment(eventDate).format('MMMM Do')} - Workshop Focused Session`,
+      body: workshopIssueBody
+    }
+  }, function (error, response, body) {
+    if (error) {
+      progressIndicator.stopAndPersist(FAILURE_SYMBOL);
+      callback(error);
+      return;
+    }
+
+    progressIndicator.stopAndPersist(SUCCESS_SYMBOL);
+    const { html_url: workshopRegistrationUrl } = body;
+    const updatedData = _.assign(data, {
+      workshopRegistrationUrl
     });
     callback(null, updatedData);
   });
@@ -403,7 +471,8 @@ function generateWebsite (data, callback) {
     eventTime,
     eventLocationName,
     eventLocation,
-    eventRegistrationUrl,
+    eventUrl,
+    workshopRegistrationUrl,
     mentorRegistrationUrl
   } = data;
   const siteData = {
@@ -415,7 +484,8 @@ function generateWebsite (data, callback) {
       address: `${eventLocationName} ${eventLocation}`,
       addressUrlSafe: encodeURIComponent(eventLocation),
       mentorsUrl: mentorRegistrationUrl,
-      ticketsUrl: eventRegistrationUrl
+      workshopsUrl: workshopRegistrationUrl,
+      ticketsUrl: eventUrl
     }
   };
   const dataJsonString = JSON.stringify(siteData, null, 2);
@@ -464,13 +534,14 @@ function publishWebsite (data, callback) {
 async.waterfall([
   inquire,
   createMentorIssue,
-  duplicateTitoEvent,
-  updateTitoEvent,
-  updateTitoEventSettings,
-  getTitoEventReleases,
-  updateTitoEventRelease,
+  createWorkshopIssue,
+  // duplicateTitoEvent,
+  // updateTitoEvent,
+  // updateTitoEventSettings,
+  // getTitoEventReleases,
+  // updateTitoEventRelease,
   getEventLocationLatLng,
-  addEventToNodeSchoolCalendar,
+  // addEventToNodeSchoolCalendar,
   generateWebsite,
   generateSocialImage,
   publishWebsite
