@@ -1,13 +1,13 @@
 {
-  "generatedAt": 1565127006498,
+  "generatedAt": 1570370446643,
   "nextEvent": {
     "dayOfTheWeek": "Saturday",
-    "date": "September 7th",
-    "time": "1-5PM",
-    "address": "Impacta Certificação e Treinamento Avenida Paulista, 1009 - 17º Andar. Auditório",
-    "addressUrlSafe": "Avenida%20Paulista%2C%201009%20-%2017%C2%BA%20Andar.%20Audit%C3%B3rio",
-    "mentorsUrl": "https://github.com/nodeschool/saopaulo/issues/22",
-    "workshopsUrl": "https://github.com/nodeschool/saopaulo/issues/23",
-    "ticketsUrl": "https://www.meetup.com/nodeschoolsp/events/263786026/"
+    "date": "November 2nd",
+    "time": "1-6PM",
+    "address": "Caelum SP Rua Vergueiro, 3185 - Liberdade, São Paulo",
+    "addressUrlSafe": "Rua%20Vergueiro%2C%203185%20-%20Liberdade%2C%20S%C3%A3o%20Paulo",
+    "mentorsUrl": "https://github.com/nodeschool/saopaulo/issues/24",
+    "workshopsUrl": "https://github.com/nodeschool/saopaulo/issues/25",
+    "ticketsUrl": "https://www.meetup.com/nodeschoolsp/events/265451047"
   }
 }
