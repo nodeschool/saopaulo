@@ -1,13 +1,13 @@
 {
-  "generatedAt": 1572719049115,
+  "generatedAt": 1577640352883,
   "nextEvent": {
     "dayOfTheWeek": "Saturday",
-    "date": "December 14th",
-    "time": "1-5PM",
-    "address": "Impacta Tecnologia Av. Paulista, 1009 - São Paulo",
-    "addressUrlSafe": "Av.%20Paulista%2C%201009%20-%20S%C3%A3o%20Paulo",
-    "mentorsUrl": "https://github.com/nodeschool/saopaulo/issues/31",
-    "workshopsUrl": "https://github.com/nodeschool/saopaulo/issues/32",
-    "ticketsUrl": "https://www.meetup.com/nodeschoolsp/events/266164611"
+    "date": "February 8th",
+    "time": "1-6PM",
+    "address": "Caelum Ensino e Inovação Rua Vergueiro, 3185 - Liberdade, SP - 8º Andar Sala 87",
+    "addressUrlSafe": "Rua%20Vergueiro%2C%203185%20-%20Liberdade%2C%20SP%20-%208%C2%BA%20Andar%20Sala%2087",
+    "mentorsUrl": "https://github.com/nodeschool/saopaulo/issues/33",
+    "workshopsUrl": "https://github.com/nodeschool/saopaulo/issues/34",
+    "ticketsUrl": "https://www.meetup.com/nodeschoolsp/events/267493201/"
   }
 }
